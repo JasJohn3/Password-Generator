@@ -71,7 +71,12 @@ header {
   display: block;
   clear: both;
 }
-
+.setting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px 0;
+}
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);

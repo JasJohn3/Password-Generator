@@ -67,7 +67,7 @@ console.log(getRandomLower());
 console.log(getRandomUpper());
 console.log(getRandomNumber());
 console.log(getRandomSpecial());
-console.log(getPasswordLength());
+// console.log(getPasswordLength());
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
