@@ -11,6 +11,8 @@ var clipboardButton = document.getElementById('clipboard');
 var passwordText = document.querySelector("#password");
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+
+
 //______________________________ Random String Values Functions ______________________________
 // Functions for selecting a random string value from char codes
 var getRandomLower = function(){
@@ -33,56 +35,65 @@ var getRandomSpecial = function(){
 }
 // Functions for selecting a random string value from special characters string
 //______________________________ Random String Values Functions ______________________________
+//______________________________ Random String Values Function Call Object ______________________________
+const randomFunctionCall ={
+  hasUpper: getRandomUpper,
+  hasLower: getRandomLower,
+  hasNumber: getRandomNumber,
+  hasSpecial: getRandomSpecial
+}
 
+//______________________________ Random String Values Function Call Object ______________________________
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  
 
   passwordText.value = password;
-
 }
+
 var generatePassword = function(){
-  var length = getPasswordLength();
-  console.log(length);
-  var password = [];
-  for (let i = 0; i < length; i++) {
-    if(uppercase.checked){
-      password += getRandomUpper();
-      i++;
-      console.log(i);
-      console.log(password);
-    }
-    if(lowercase.checked){
-      password += getRandomLower();
-      i++;
-      console.log(i);
-      console.log(password);
-    }
-    if(numbers.checked){
-      password += getRandomNumber();
-      i++;
-      console.log(i);
-      console.log(password);
-    }
-    if(special.checked){
-      password += getRandomSpecial();
-      i++;
-      console.log(i);
-      console.log(password);
-    }
+  var generatedPassword ='';
+  const passwordLength = getPasswordLength();
+  const hasUpper = uppercase.checked;
+  const hasLower = lowercase.checked;
+  const hasNumber = numbers.checked;
+  const hasSpecial = special.checked;
+
+  const typesCount = hasUpper + hasLower + hasNumber + hasSpecial;
+  // Filter the array to exclude any values that were not selected by the user
+  const typesArray = [{hasUpper}, {hasLower}, {hasNumber}, {hasSpecial}].filter
+  (
+    item => Object.values(item)[0]
+  );
+  console.log(typesCount);
+  console.log(typesArray);
+  
+  if(typesCount === 0){
+    alert('You did not select any settings for your password! Please select settings from the options menu!');
+    return;
+  }
+  for (let i = 0; i < passwordLength; i+= typesCount) {
+    typesArray.forEach(type =>{
+      // Grab a key from the typesArray
+      const functionCall = Object.keys(type)[0];
+      console.log(functionCall)
+      console.log(randomFunctionCall);
+      // Compare the key values to the values in the randomFunctionCall object
+      generatedPassword += randomFunctionCall[functionCall]();
+      console.log(generatePassword);
+    });
     
   }
- 
-  return password;
+  const result =(generatedPassword.slice(0,passwordLength));
+  return result;
 }
 
-const allRandomFunctions ={
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  special: getRandomSpecial
+//______________________________ Verify User Password Settings Function ______________________________
+var passwordSettings = function(){
+
+
 }
+//______________________________ Verify User Password Settings Function ______________________________
 //______________________________ Password Length Function ______________________________
 // Password Length Function that validates the user input and alerts if there are invalid values
 var getPasswordLength = function(){
@@ -93,16 +104,19 @@ var getPasswordLength = function(){
 
   if (setPasswordLength < min) {
     alert('Invalid Entry! You entered a value less than 8 Characters.')
+    passwordLength.value = min;
     return;
   }
   if (setPasswordLength > max) {
     alert('Invalid Entry! You entered a value greater than 128 Characters.')
+    passwordLength.value = max;
     return;
   }
   if(isNaN(setPasswordLength)){
     alert('Invalid Entry! Value must be Numeric.')
     return;
   }
+  
   return setPasswordLength;
 }
 //______________________________ Password Length Function ______________________________
