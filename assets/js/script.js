@@ -65,8 +65,6 @@ var generatePassword = function(){
   (
     item => Object.values(item)[0]
   );
-  console.log(typesCount);
-  console.log(typesArray);
   
   if(typesCount === 0){
     alert('You did not select any settings for your password! Please select settings from the options menu!');
@@ -76,11 +74,8 @@ var generatePassword = function(){
     typesArray.forEach(type =>{
       // Grab a key from the typesArray
       const functionCall = Object.keys(type)[0];
-      console.log(functionCall)
-      console.log(randomFunctionCall);
       // Compare the key values to the values in the randomFunctionCall object
       generatedPassword += randomFunctionCall[functionCall]();
-      console.log(generatePassword);
     });
     
   }
@@ -98,7 +93,6 @@ var passwordSettings = function(){
 // Password Length Function that validates the user input and alerts if there are invalid values
 var getPasswordLength = function(){
   var setPasswordLength = passwordLength.value;
-  console.log(setPasswordLength);
   var min = 8;
   var max = 128;
 
