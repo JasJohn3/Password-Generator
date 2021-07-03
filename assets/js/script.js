@@ -111,10 +111,10 @@ var getPasswordLength = function(){
 //______________________________ Password Length Function ______________________________
 //______________________________ Clipboard Copy and Paste Function ______________________________
 // References: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
-function clipboardButton (){
+function clipboardButtonEvent (){
   const textArea = document.createElement('textarea');
-  const password = passwordText.innerText;
-
+  const password = passwordText.value;
+  console.log(password);
   if(!password){
     alert('No Password appears to be available! Press the Generate Password button to create a password!');
     return;
@@ -131,4 +131,4 @@ function clipboardButton (){
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-clipboardButton.addEventListener('click', clipboardButton);
+clipboardButton.addEventListener('click', clipboardButtonEvent);
