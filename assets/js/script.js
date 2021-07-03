@@ -79,16 +79,11 @@ var generatePassword = function(){
     });
     
   }
+  //[User Data Validation] If the password is longer than the user selected length, remove remaining character values
   const result =(generatedPassword.slice(0,passwordLength));
   return result;
 }
 
-//______________________________ Verify User Password Settings Function ______________________________
-var passwordSettings = function(){
-
-
-}
-//______________________________ Verify User Password Settings Function ______________________________
 //______________________________ Password Length Function ______________________________
 // Password Length Function that validates the user input and alerts if there are invalid values
 var getPasswordLength = function(){
@@ -114,9 +109,26 @@ var getPasswordLength = function(){
   return setPasswordLength;
 }
 //______________________________ Password Length Function ______________________________
+//______________________________ Clipboard Copy and Paste Function ______________________________
+// References: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
+function clipboardButton (){
+  const textArea = document.createElement('textarea');
+  const password = passwordText.innerText;
 
-
+  if(!password){
+    alert('No Password appears to be available! Press the Generate Password button to create a password!');
+    return;
+  }
+  textArea.value = password;
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand('copy')
+  textArea.remove();
+  alert('Password copied to clipboard!');
+}
+//______________________________ Clipboard Copy and Paste Function ______________________________
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+clipboardButton.addEventListener('click', clipboardButton);
