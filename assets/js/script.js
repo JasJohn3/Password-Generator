@@ -72,9 +72,9 @@ var generatePassword = function(){
   // Iterate by the number of true values selected
   for (let i = 0; i < passwordLength; i+= typesCount) {
     // Utilize a for each loop that performs key comparisons and calls functions stored in randomFunctionCall object
-    typesArray.forEach(type =>{
+    typesArray.forEach(item =>{
       // Grab a key value from the typesArray
-      const functionCall = Object.keys(type)[0];
+      const functionCall = Object.keys(item)[0];
       // Compare the key values to the values in the randomFunctionCall object
       generatedPassword += randomFunctionCall[functionCall]();
     });
