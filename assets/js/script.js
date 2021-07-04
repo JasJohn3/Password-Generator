@@ -16,15 +16,15 @@ var generateBtn = document.querySelector("#generate");
 //______________________________ Random String Values Functions ______________________________
 // Functions for selecting a random string value from char codes
 var getRandomLower = function(){
-  return String.fromCharCode(Math.floor(Math.random()*26)+97)
+  return String.fromCharCode(Math.floor(Math.random()*26)+97);
 }
 
 var getRandomUpper = function(){
-  return String.fromCharCode(Math.floor(Math.random()*26)+65)
+  return String.fromCharCode(Math.floor(Math.random()*26)+65);
 }
 
 var getRandomNumber = function(){
-  return String.fromCharCode(Math.floor(Math.random()*10)+48)
+  return String.fromCharCode(Math.floor(Math.random()*10)+48);
 }
 // Functions for selecting a random string value from char codes
 
@@ -35,15 +35,14 @@ var getRandomSpecial = function(){
 }
 // Functions for selecting a random string value from special characters string
 //______________________________ Random String Values Functions ______________________________
-//______________________________ Random String Values Function Call Object ______________________________
+//________________________ Random String Values Function Call Object ____________________________
 const randomFunctionCall ={
   hasUpper: getRandomUpper,
   hasLower: getRandomLower,
   hasNumber: getRandomNumber,
   hasSpecial: getRandomSpecial
 }
-
-//______________________________ Random String Values Function Call Object ______________________________
+//________________________ Random String Values Function Call Object ____________________________
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -58,7 +57,7 @@ var generatePassword = function(){
   const hasLower = lowercase.checked;
   const hasNumber = numbers.checked;
   const hasSpecial = special.checked;
-
+  // Counter to store number of selected settings
   const typesCount = hasUpper + hasLower + hasNumber + hasSpecial;
   // Filter the array to exclude any values that were not selected by the user
   const typesArray = [{hasUpper}, {hasLower}, {hasNumber}, {hasSpecial}].filter
@@ -70,9 +69,11 @@ var generatePassword = function(){
     alert('You did not select any settings for your password! Please select settings from the options menu!');
     return;
   }
+  // Iterate by the number of true values selected
   for (let i = 0; i < passwordLength; i+= typesCount) {
+    // Utilize a for each loop that performs key comparisons and calls functions stored in randomFunctionCall object
     typesArray.forEach(type =>{
-      // Grab a key from the typesArray
+      // Grab a key value from the typesArray
       const functionCall = Object.keys(type)[0];
       // Compare the key values to the values in the randomFunctionCall object
       generatedPassword += randomFunctionCall[functionCall]();
