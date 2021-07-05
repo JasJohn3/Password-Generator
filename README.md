@@ -19,7 +19,7 @@ ___
 
 ## Setup
 ___
-visit: <a href="https://jasjohn3.github.io/Password-Generator/" target="_blank" >https://jasjohn3.github.io/Password-Generator/</a>
+visit: <a href="https://jasjohn3.github.io/Password-Generator/" target="_blank" rel="noreferrer noopener">https://jasjohn3.github.io/Password-Generator/</a>
 ### Select Settings
 1. Set your password length between 8 and 128 characters.
 2. Select what kind of character types you wish to have Uppercase, Lowercase, Numbers, or Special Characters.
