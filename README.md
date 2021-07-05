@@ -12,8 +12,8 @@ ___
   * [Filter Method](#filter-method)
   * [Nested Loops](#nested-loops)
   * [Clipboard](#clipboard)
-* References
-* Conclusion
+* [References](#references)
+* [Conclusion](#conclusion)
 ___
 
 ## Setup
@@ -86,7 +86,7 @@ Here we use the Array.filter() method that requires an inline function to be cre
 Here, we use a standard for loop to iterate through our arrays.  The first for loop uses the password length set by the user and iterates based on the number of settings selected by the user typesCount.
 
 The Nested loop is utilizing an Array method called Array.forEach.  Like the filter method, we define a variable called item that selects a value stored in the array.  Then, we use the Object.key's method to compare the key value to the key values stored in our randomFunctionCall object created earlier.  The () is added to ensure that each function called will be executed when the value is selected.
-### Copy to clipboard feature
+### Clipboard
 #### Sample Code
 ```javascript 
 var clipboardButton = document.getElementById('clipboard');
