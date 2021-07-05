@@ -1,9 +1,11 @@
 # Password-Generator
-
+___
 ## Description
+___
 Password Generator creates a unique password consisting of 8 to 128 possible characters of various type.  These passwords are randomly generated from four possible settings Uppercase Letters, Lowercase Letters, Numbers and Special Characters.
 ___
 ## Table of Contents
+___
 * [Setup](#setup)
 * [Coding Highlights](#coding-highlights)
   * [Random Character Generation](#random-character-generation)
@@ -16,6 +18,7 @@ ___
 ___
 
 ## Setup
+___
 visit: [Password-Generator](https://jasjohn3.github.io/Password-Generator/)
 ### Select Settings
 1. Set your password length between 8 and 128 characters.
@@ -26,7 +29,7 @@ visit: [Password-Generator](https://jasjohn3.github.io/Password-Generator/)
 ___
 
 ## Coding Highlights
-
+___
 ### Random Character Generation
 #### Sample Code
 ```javascript 
@@ -42,6 +45,7 @@ To implement:
 2. Then multiply our Math.Random * 26, as there are 26 letters in the alphabet.
 3. Finally, we wrap the Random method with the String.fromCharCode method.
 4. Result: This generates a single character at random that is a lowercase letter.
+___
 ### Function Call Object
 #### Sample Code
 ```javascript 
@@ -58,6 +62,7 @@ Here we create an object of key value pairs where the values are the functions w
 const typesArray = [{hasUpper}, {hasLower}, {hasNumber}, {hasSpecial}]
 ```
 Addtional trick is to wrap our variables in brackets {} creating a key value of the same variable name eg... {hasUpper}.
+___
 ### Filter Method
 #### Sample Code
 ```javascript 
@@ -67,6 +72,7 @@ Addtional trick is to wrap our variables in brackets {} creating a key value of 
   );
 ```
 Here we use the Array.filter() method that requires an inline function to be created.  Much like the forEach method, we create a variable called item that will select a single value stored in the array. Then, using the Object.values method, we filter any item that has a false value Object.values(item)[0];
+___
 ### Nested Loops
 #### Sample Code
 ```javascript 
@@ -85,6 +91,7 @@ Here we use the Array.filter() method that requires an inline function to be cre
 Here, we use a standard for loop to iterate through our arrays.  The first for loop uses the password length set by the user and iterates based on the number of settings selected by the user typesCount.
 
 The Nested loop is utilizing an Array method called Array.forEach.  Like the filter method, we define a variable called item that selects a value stored in the array.  Then, we use the Object.key's method to compare the key value to the key values stored in our randomFunctionCall object created earlier.  The () is added to ensure that each function called will be executed when the value is selected.
+___
 ### Clipboard
 #### Sample Code
 ```javascript 
@@ -107,13 +114,14 @@ function clipboardButtonEvent (){
 clipboardButton.addEventListener('click', clipboardButtonEvent);
 ```
 Here we create a copy to clipboard button by following this specific guide [Clipboard](https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f).
-
 ___
 
 ## References
+___
 1. [Clipboard](https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f)
 2. [Charset](https://net-comber.com/charset.html)
 3. [Tutorial](https://www.youtube.com/watch?v=duNmhKgtcsI&ab_channel=TraversyMedia)
 ___
 ## Conclusion
+___
 Overall, this project was an excelent lesson in various javascript methods and tools.  The coding highlights segment acts as a future reference guide for some advanced coding techniques.  I want to offer a special thanks to [Traversymedia](https://www.traversymedia.com/) for the tutorial that made this project come together.
