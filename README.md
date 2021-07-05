@@ -4,13 +4,14 @@
 Password Generator creates a unique password consisting of 8 to 128 possible characters of various type.  These passwords are randomly generated from four possible settings Uppercase Letters, Lowercase Letters, Numbers and Special Characters.
 ___
 ## Table of Contents
-* Setup
-* Coding Highlights
-  * Random character generation  using charcode
-  * Assinging function calls to javascript object
-  * Using filter method to remove false values
-  * Nested for loops to iterate through arrays
-  * Copy to clipboard feature
+* [Description] (#description)
+* [Setup](#setup)
+* [Coding Highlights](#coding-highlights)
+  * [Random Character Generation](#random-character-generation)
+  * [Function Call Object](#function-call-object)
+  * [Filter Method](#filter-method)
+  * [Nested Loops](#nested-loops)
+  * [Clipboard](#clipboard)
 * References
 * Conclusion
 ___
@@ -27,7 +28,7 @@ ___
 
 ## Coding Highlights
 
-### Random character generation  using charcode
+### Random Character Generation
 #### Sample Code
 ```javascript 
 var getRandomLower = function(){
@@ -42,7 +43,7 @@ To implement:
 2. Then multiply our Math.Random * 26, as there are 26 letters in the alphabet.
 3. Finally, we wrap the Random method with the String.fromCharCode method.
 4. Result: This generates a single character at random that is a lowercase letter.
-### Assinging function calls to javascript object
+### Function Call Object
 #### Sample Code
 ```javascript 
 const randomFunctionCall ={
@@ -58,7 +59,7 @@ Here we create an object of key value pairs where the values are the functions w
 const typesArray = [{hasUpper}, {hasLower}, {hasNumber}, {hasSpecial}]
 ```
 Addtional trick is to wrap our variables in brackets {} creating a key value of the same variable name eg... {hasUpper}.
-### Using filter method to remove false values
+### Filter Method
 #### Sample Code
 ```javascript 
   const typesArray = [{hasUpper}, {hasLower}, {hasNumber}, {hasSpecial}].filter
@@ -67,7 +68,7 @@ Addtional trick is to wrap our variables in brackets {} creating a key value of 
   );
 ```
 Here we use the Array.filter() method that requires an inline function to be created.  Much like the forEach method, we create a variable called item that will select a single value stored in the array. Then, using the Object.values method, we filter any item that has a false value Object.values(item)[0];
-### Nested for loops to iterate through arrays
+### Nested Loops
 #### Sample Code
 ```javascript 
   for (let i = 0; i < passwordLength; i+= typesCount) {
