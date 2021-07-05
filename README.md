@@ -61,7 +61,7 @@ Here we create an object of key value pairs where the values are the functions w
 ```javascript 
 const typesArray = [{hasUpper}, {hasLower}, {hasNumber}, {hasSpecial}]
 ```
-Addtional trick is to wrap our variables in brackets {} creating a key value of the same variable name eg... {hasUpper}.
+Addtional trick is to wrap our variables in brackets {} creating a key value of the same variable name eg... {hasUpper} =[key: hasUpper, value: hasUpper].
 ___
 ### Filter Method
 #### Sample Code
