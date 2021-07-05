@@ -4,7 +4,6 @@
 Password Generator creates a unique password consisting of 8 to 128 possible characters of various type.  These passwords are randomly generated from four possible settings Uppercase Letters, Lowercase Letters, Numbers and Special Characters.
 ___
 ## Table of Contents
-* [Description] (#description)
 * [Setup](#setup)
 * [Coding Highlights](#coding-highlights)
   * [Random Character Generation](#random-character-generation)
